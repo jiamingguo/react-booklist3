@@ -1,7 +1,14 @@
-import { combineReducers } from 'redux';
+import React from 'react';
+import ReactDOM from 'react-dom';
+import { Provider } from 'react-redux';
+import { createStore } from 'redux';
 
-const rootReducer = combineReducers({
-    state: (state = {}) => state
-});
+import App from './components/app';
+import reducer from './reducers';
 
-export default rootReducer;
+ReactDOM.render(
+    <Provider store={createStore(reducer)}>
+        <App />
+    </Provider>
+    , document.querySelector('.container')
+);
